@@ -1,0 +1,16 @@
+// membuat model dan controller // -mc = model controller
+php artisan make:model namaModel -mc
+
+// untuk migrate migration
+php artisan migrate
+
+//untuk migrate data baru
+php artisan migrate:fresh
+
+//untuk membuat seeder
+php artisan make:seeder namaSeeder
+
+//untuk menjalankan seeder
+php artisan db:seed --class=namaSeeder
+
+//
