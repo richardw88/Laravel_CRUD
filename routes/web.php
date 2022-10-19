@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 Route::get('/pegawai', [EmployeeController::class, 'index'])->name('pegawai');
 Route::get('/tambahPegawai', [EmployeeController::class, 'tambahPegawai'])->name('tambahPegawai');
-Route::get('/tampilDataPegawai/{id}', [EmployeeController::class, 'tampilDataPegawai'])->name('tampilDataPegawai');
+Route::get('/editDataPegawai/{id}', [EmployeeController::class, 'editDataPegawai'])->name('editDataPegawai');
 //POST DATA PEGAWAI
 Route::post('/tambahDataPegawai', [EmployeeController::class, 'tambahDataPegawai'])->name('tambahDataPegawai');
 //Update Data Pegawai

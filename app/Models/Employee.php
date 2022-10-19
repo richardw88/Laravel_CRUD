@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Employee extends Model{
     use HasFactory;
 
-    // protected $guarded = [];
+    protected $guarded = [];
     protected $dates = ['created_at'];
-    protected $fillable = ['nama', 'jenisKelamin', 'noTelepon'];
+    // protected $fillable = ['nama', 'jenisKelamin', 'noTelepon'];
 }

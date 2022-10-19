@@ -28,6 +28,7 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nama</th>
+                        <th scope="col">Foto</th>
                         <th scope="col">Jenis Kelamin</th>
                         <th scope="col">No Telepon</th>
                         <th scope="col">Di Buat</th>
@@ -42,11 +43,14 @@
                         <tr>
                             <th scope="row">{{ $nomor++ }}</th>
                             <td> {{ $row->nama }} </td>
+                            <td>
+                                <img src="{{ asset('fotopegawai/'.$row->foto)}}" width="40px" alt="">
+                            </td>
                             <td> {{ $row->jenisKelamin }} </td>
                             <td> 0{{ $row->noTelepon }} </td>
                             <td> {{ $row->created_at->format('D M Y') }} </td>
                             <td>
-                                <a href="/tampilDataPegawai/{{ $row->id }}" class="btn btn-success">Edit</a>
+                                <a href="/editDataPegawai/{{ $row->id }}" class="btn btn-success">Edit</a>
                                 <a href="/deleteDataPegawai/{{ $row->id }}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>

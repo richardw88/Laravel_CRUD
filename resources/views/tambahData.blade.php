@@ -41,6 +41,10 @@
                                 <input type="number" name="noTelepon" class="form-control" id="noTelepon"
                                     aria-describedby="emailHelp">
                             </div>
+                            <div class="mb-3">
+                                <label for="foto" class="form-label">Masukan Foto</label>
+                                <input type="file" name="foto" class="form-control">
+                            </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <a href="/pegawai" class="btn btn-warning">Kembali</a>
                         </form>
