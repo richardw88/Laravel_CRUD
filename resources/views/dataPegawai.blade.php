@@ -35,16 +35,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                        $nomor = 1;
+                    @endphp
                     @foreach ($data as $row)
                         <tr>
-                            <th scope="row">{{ $row->id }}</th>
+                            <th scope="row">{{ $nomor++ }}</th>
                             <td> {{ $row->nama }} </td>
                             <td> {{ $row->jenisKelamin }} </td>
                             <td> 0{{ $row->noTelepon }} </td>
                             <td> {{ $row->created_at->format('D M Y') }} </td>
                             <td>
-                                <a href="/tampilDataPegawai/{{$row->id}}" class="btn btn-success">Edit</a>
-                                <button type="button" class="btn btn-danger">Delete</button>
+                                <a href="/tampilDataPegawai/{{ $row->id }}" class="btn btn-success">Edit</a>
+                                <a href="/deleteDataPegawai/{{ $row->id }}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach
