@@ -16,8 +16,13 @@
 <body>
     <h1 class="text-center mb-4 mt-2">Data Pegawai</h1>
     <div class="container">
-        <button type="button" class="btn btn-primary mb-2">Tambah Data</button>
+        <a href="/tambahPegawai" class="btn btn-primary mb-2">Tambah Data</a>
         <div class="row">
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ $message }}
+                </div>
+            @endif
             <table class="table">
                 <thead>
                     <tr>
@@ -25,21 +30,23 @@
                         <th scope="col">Nama</th>
                         <th scope="col">Jenis Kelamin</th>
                         <th scope="col">No Telepon</th>
+                        <th scope="col">Di Buat</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($data as $row)
-                    <tr>
-                        <th scope="row">{{ $row -> id}}</th>
-                        <td> {{$row -> nama}} </td>
-                        <td> {{$row -> jenisKelamin}} </td>
-                        <td> 0{{$row -> noTelepon}} </td>
-                        <td>
-                            <button type="button" class="btn btn-success">Edit</button>
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </td>
-                    </tr>
+                        <tr>
+                            <th scope="row">{{ $row->id }}</th>
+                            <td> {{ $row->nama }} </td>
+                            <td> {{ $row->jenisKelamin }} </td>
+                            <td> 0{{ $row->noTelepon }} </td>
+                            <td> {{ $row->created_at->format('D M Y') }} </td>
+                            <td>
+                                <a href="/tampilDataPegawai/{{$row->id}}" class="btn btn-success">Edit</a>
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
@@ -52,13 +59,17 @@
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
     -->
 </body>
 

@@ -13,9 +13,18 @@ use App\Http\Controllers\EmployeeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// GET
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('/pegawai', [EmployeeController::class, 'index'])->name('pegawai');
+Route::get('/tambahPegawai', [EmployeeController::class, 'tambahPegawai'])->name('tambahPegawai');
+Route::get('/tampilDataPegawai/{id}', [EmployeeController::class, 'tampilDataPegawai'])->name('tampilDataPegawai');
+
+
+//POST DATA PEGAWAI
+Route::post('/tambahDataPegawai', [EmployeeController::class, 'tambahDataPegawai'])->name('tambahDataPegawai');
+
+//Update Data Pegawai
+Route::post('/updateDataPegawai/{id}', [EmployeeController::class, 'updateDataPegawai'])->name('updateDataPegawai');
+
